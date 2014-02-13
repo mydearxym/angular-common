@@ -35,8 +35,10 @@
                         }
                     });
 
-                    $timeout(function() {
-                        toUpdate = scope.ngModel;
+                    scope.$watch('ngModel', function() {
+                        $timeout(function() {
+                            toUpdate = scope.ngModel;
+                        });
                     });
                 }
             }
