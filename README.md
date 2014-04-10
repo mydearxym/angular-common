@@ -32,6 +32,7 @@ angular.module('app', [
     'common.skype',
     'common.sortable',
     'common.strings',
+    'common.time',
     'common.upload',
     'common.youtube'
 ]);
