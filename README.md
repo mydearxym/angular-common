@@ -27,7 +27,6 @@ angular.module('app', [
     'common.mediaelement',
     'common.modal',
     'common.ngBindHtmlUnsafe',
-    'common.print',
     'common.redactor',
     'common.skype',
     'common.sortable',
