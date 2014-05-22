@@ -18,17 +18,12 @@ bower install angular-common
 
 ```
 angular.module('app', [
-    'common.api',
     'common.confirm',
     'common.dateRange',
     'common.drag',
     'common.dragdrop',
     'common.draw',
-    'common.mediaelement',
     'common.modal',
-    'common.ngBindHtmlUnsafe',
-    'common.redactor',
-    'common.skype',
     'common.sortable',
     'common.strings',
     'common.time',
