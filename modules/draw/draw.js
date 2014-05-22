@@ -27,8 +27,8 @@
                     var lastY;
 
                     element.bind('mousedown', function(event){
-                        lastX = event.offsetX || event.pageX - angular.element(element).offset().left;
-                        lastY = event.offsetY || event.pageY - angular.element(element).offset().top;
+                        lastX = event.offsetX;
+                        lastY = event.offsetY;
 
                         // begins new line
                         ctx.beginPath();
@@ -47,14 +47,11 @@
                             return;
                         }
 
-                        var offsetX = event.offsetX || event.pageX - angular.element(element).offset().left;
-                        var offsetY = event.offsetY || event.pageY - angular.element(element).offset().top;
-
-                        draw(lastX, lastY, offsetX, offsetY);
+                        draw(lastX, lastY, event.offsetX, event.offsetY);
 
                         // set current coordinates to last one
-                        lastX = offsetX;
-                        lastY = offsetY;
+                        lastX = event.offsetX;
+                        lastY = event.offsetY;
                     });
 
                     scope.$watch('ngModel', function(newVal, oldVal) {
