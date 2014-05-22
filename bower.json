@@ -18,9 +18,5 @@
     "bootstrap": "~3.0.3",
     "mediaelement": "~2.13.1",
     "bootstrap-daterangepicker": "*"
-  },
-  "resolutions": {
-    "jquery": "~1.10",
-    "moment": "~2.4.0"
   }
 }

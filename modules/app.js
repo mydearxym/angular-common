@@ -3,18 +3,13 @@
     "use strict";
 
     angular.module('angular-common', [
-        'demo.api',
         'demo.confirm',
         'demo.daterange',
         'demo.drag',
         'demo.dragdrop',
         'demo.draw',
-        'demo.mediaelement',
         'demo.modal',
-        'demo.ngBindHtmlUnsafe',
-        'demo.redactor',
         'demo.sortable',
-        'demo.skype',
         'demo.strings',
         'demo.time',
         'demo.upload',
@@ -28,18 +23,13 @@
 
     .controller('MainCtrl', ['$scope', function($scope) {
         $scope.modules = [
-            'api',
             'confirm',
             'dateRange',
             'drag',
             'dragdrop',
             'draw',
-            'mediaelement',
             'modal',
-            'ngBindHtmlUnsafe',
-            'redactor',
             'sortable',
-            'skype',
             'strings',
             'time',
             'upload',

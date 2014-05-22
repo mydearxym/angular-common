@@ -43,7 +43,7 @@ module.exports = function(grunt) {
                 browsers: ['PhantomJS']
             },
             chrome: {
-                browsers: ['Chrome'],
+                browsers: ['PhantomJS'],
                 singleRun: false,
                 autoWatch: true
             }
