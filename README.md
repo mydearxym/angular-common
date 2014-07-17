@@ -1,12 +1,12 @@
 # Angular JS Common
 
-A collection of useful directives, filters, and services for Angular JS.
+A collection of useful directives, filters, and services for Angular JS.  Please treat these as learning examples of how to build directives and services.
 
-[Docs and Examples](http://clouddueling.github.io/angular-common/)
+If you have a module you'd like to add please start a discussion in a new issue.  I'm very open to good learning examples.
+
+[Docs andExamples](http://clouddueling.github.io/angular-common/)
 
 [@michaeljcalkins](https://twitter.com/michaeljcalkins)
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/clouddueling/angular-common/trend.png)](https://bitdeli.com/free "Bitdeli Badge") [![Build Status](https://travis-ci.org/clouddueling/angular-common.png?branch=master)](https://travis-ci.org/clouddueling/angular-common)
 
 ## Install
 
