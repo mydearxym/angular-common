@@ -4,7 +4,7 @@ A collection of useful directives, filters, and services for Angular JS.  Please
 
 If you have a module you'd like to add please start a discussion in a new issue.  I'm very open to good learning examples.
 
-[Docs andExamples](http://clouddueling.github.io/angular-common/)
+[Docs and Examples](http://clouddueling.github.io/angular-common/)
 
 [@michaeljcalkins](https://twitter.com/michaeljcalkins)
 
