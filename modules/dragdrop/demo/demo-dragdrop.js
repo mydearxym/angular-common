@@ -7,24 +7,44 @@
     ])
 
     .controller('DemoDragDropCtrl', ['$scope', 'DragDropHandler', function($scope, DragDropHandler) {
-        $scope.items = [
-            {
-                id: 3,
-                name:'Item 1'
-            },
-            {
-                id: 4,
-                name:'Item 2'
-            },
-            {
-                id: 5,
-                name:'Item 3'
-            },
-            {
-                id: 6,
-                name:'Item 4'
-            }
-        ];
+        $scope.items = {
+            list1 : [
+                {
+                    id: 13,
+                    name:'L1 Item 1'
+                },
+                {
+                    id: 14,
+                    name:'L1 Item 2'
+                },
+                {
+                    id: 15,
+                    name:'L1 Item 3'
+                },
+                {
+                    id: 16,
+                    name:'L1 Item 4'
+                }
+            ],
+            list2 : [
+                {
+                    id: 23,
+                    name:'L2 Item 1'
+                },
+                {
+                    id: 24,
+                    name:'L2 Item 2'
+                },
+                {
+                    id: 25,
+                    name:'L2 Item 3'
+                },
+                {
+                    id: 26,
+                    name:'L2 Item 4'
+                }
+            ]
+        };
               
         $scope.objects = [
             {
@@ -47,19 +67,20 @@
             "</ul>\n\n" +
 
             "<ul\n" +
-            "   droppable='items'\n" +
-            "   ng-update='updateObjects(id, from, to)'\n" +
+            "   droppable='items.list1'\n" +
+            "   ng-move='moveObject(from, to, fromList, toList)'\n" +
             "   ng-create='createObject(object, to)'\n" +
-            "   id='sortable'>\n" +
-            "   <li ng-repeat='item in items track by item.id'>\n"+
+            "   id='list1' class='sortable'>\n" +
+            "   <li ng-repeat='item in items.list1 track by item.id'>\n"+
             "       {{ item.name }}\n" +
             "   </li>\n" +
         "</ul>";
         
-        $scope.updateObjects = function(from, to) {
-            var itemIds = _.pluck($scope.items, 'id');
-            console.log(itemIds);
-        };
+        $scope.moveObject = function(from, to, fromList, toList) {
+            var item = $scope.items[fromList][from];
+            DragDropHandler.addObject(item, $scope.items[toList], to);
+            $scope.items[fromList].splice(0, 1);
+        }
 
         $scope.createObject = function(object, to) {
             var newItem = angular.copy(object);
@@ -68,9 +89,13 @@
         };
         
         $scope.deleteItem = function(itemId) {
-            $scope.items = _.reject($scope.items, function(item) {
+          for (var list in $scope.items) {
+            if ($scope.items.hasOwnProperty(list)) {
+              $scope.items[list] = _.reject($scope.items[list], function(item) {
                 return item.id == itemId; 
-            });
+              });
+            }
+          }
         };
     }])
     
