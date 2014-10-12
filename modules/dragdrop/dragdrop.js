@@ -43,7 +43,7 @@
         return {
             scope: {
                 droppable: '=',
-                ngUpdate: '&',
+                ngMove: '&',
                 ngCreate: '&'
             },
             link: function(scope, element, attrs){
@@ -52,21 +52,32 @@
                 element.on("sortdeactivate", function(event, ui) {
                     var from = angular.element(ui.item).scope().$index;
                     var to = element.children().index(ui.item);
+                    var list = element.attr('id');
 
                     if (to >= 0 ){
                         scope.$apply(function(){
                             if (from >= 0) {
-                                DragDropHandler.moveObject(scope.droppable, from, to);
-                                scope.ngUpdate({
+                              //item is coming from a sortable
+                              if (!ui.sender) {
+                                //item is coming from this sortable
+                                  DragDropHandler.moveObject(scope.droppable, from, to);
+                              } else {
+                                //item is coming from another sortable
+                                scope.ngMove({
                                     from: from,
-                                    to: to
+                                    to: to,
+                                    fromList: ui.sender.attr('id'),
+                                    toList: list
                                 });
+                                ui.item.remove();
+                              }
                             } else {
+                              //item is coming from a draggable
                                 scope.ngCreate({
                                     object: DragDropHandler.dragObject,
-                                    to: to
+                                    to: to,
+                                    list: list
                                 });
-
                                 ui.item.remove();
                             }
                         });
