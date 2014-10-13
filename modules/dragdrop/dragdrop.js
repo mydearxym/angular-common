@@ -47,7 +47,9 @@
                 ngCreate: '&'
             },
             link: function(scope, element, attrs){
-                element.sortable();
+                element.sortable({
+                  connectWith: ['.draggable','.sortable'],
+                });
                 element.disableSelection();
                 element.on("sortdeactivate", function(event, ui) {
                     var from = angular.element(ui.item).scope().$index;
