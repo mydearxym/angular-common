@@ -79,7 +79,7 @@
         $scope.moveObject = function(from, to, fromList, toList) {
             var item = $scope.items[fromList][from];
             DragDropHandler.addObject(item, $scope.items[toList], to);
-            $scope.items[fromList].splice(0, 1);
+            $scope.items[fromList].splice(from, 1);
         }
 
         $scope.createObject = function(object, to) {
