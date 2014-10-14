@@ -52,7 +52,7 @@
                 });
                 element.disableSelection();
                 element.on("sortdeactivate", function(event, ui) {
-                    var from = angular.element(ui.item).scope().$index;
+                    var from = (angular.element(ui.item).scope()) ? angular.element(ui.item).scope().$index : undefined;
                     var to = element.children().index(ui.item);
                     var list = element.attr('id');
 
@@ -60,7 +60,7 @@
                         scope.$apply(function(){
                             if (from >= 0) {
                               //item is coming from a sortable
-                              if (!ui.sender) {
+                              if (!ui.sender || ui.sender[0] === element[0]) {
                                 //item is coming from this sortable
                                   DragDropHandler.moveObject(scope.droppable, from, to);
                               } else {
